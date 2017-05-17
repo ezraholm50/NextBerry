@@ -94,7 +94,19 @@ partprobe
 clear
 echo "Moving from SD to HD/SSD, this can take a while! Sit back and relax..."
 echo
-rsync -aAXv --exclude={"/boot/*","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /mnt
+{
+/boot/
+/dev/
+/proc/
+/sys/
+/tmp/
+/run/
+/mnt/
+/media/
+/lost+found
+} > /tmp/rsync.excludes
+
+rsync -aAXv --exclude-from=/tmp/rsync.excludes
 
 # Previous line is more prone to errors: sed -e '10,31d' /root/.profile
 cat <<EOF > /mnt/root/.profile
