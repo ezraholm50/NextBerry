@@ -599,7 +599,7 @@ rm -f "$SCRIPTS"/trusted.sh
 sed -i "s|precedence ::ffff:0:0/96  100|#precedence ::ffff:0:0/96  100|g" /etc/gai.conf
 
 # Remove MySQL pass from log files
-cat $MYCNF | grep password > /root/.tmp
+grep "password" $MYCNF > /root/.tmp
 sed -i 's|password=||g' /root/.tmp
 sed -i "s|'||g" /root/.tmp
 PW=$(cat /root/.tmp)
