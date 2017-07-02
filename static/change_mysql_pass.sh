@@ -13,18 +13,18 @@ unset MYCNFPW
 DEBUG=0
 debug_mode
 
-# Change MARIADB Password
-if mysqladmin -u root -p"$MARIADBMYCNFPASS" password "$NEWMARIADBPASS" > /dev/null 2>&1
+# Change MySQL Password
+if mysqladmin -u root -p"$MYSQLMYCNFPASS" password "$NEWMYSQLPASS" > /dev/null 2>&1
 then
-    echo -e "${Green}Your new MARIADB root password is: $NEWMARIADBPASS${Color_Off}"
+    echo -e "${Green}Your new MySQL root password is: $NEWMYSQLPASS${Color_Off}"
     cat << LOGIN > "$MYCNF"
 [client]
-password='$NEWMARIADBPASS'
+password='$NEWMYSQLPASS'
 LOGIN
     chmod 0600 $MYCNF
     exit 0
 else
-    echo "Changing MARIADB root password failed."
-    echo "Your old password is: $MARIADBMYCNFPASS"
+    echo "Changing MySQL root password failed."
+    echo "Your old password is: $MYSQLMYCNFPASS"
     exit 1
 fi

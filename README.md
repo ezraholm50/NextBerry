@@ -29,7 +29,6 @@ Please check the configuration here: https://www.techandme.se/machine-setup-next
 
 Note: this build does not inlude Webmin, you'll be asked to have it installed for you.
 
-
 ## Support the development
 * [Create a PR](https://help.github.com/articles/creating-a-pull-request/) and improve the code
 * Report [your issue](https://github.com/techandme/nextberry/issues/new)
